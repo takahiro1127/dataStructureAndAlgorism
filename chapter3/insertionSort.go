@@ -25,7 +25,7 @@ func insertionSort(randomArray []int, n int) []int {
 	for i, j := 1, 0; i < n; i, j  = i + 1, j + 1{
 		v := randomArray[i]
 		k := j
-		for ;k >= 0 && randomArray[j] > v; k = k - 1 {
+		for ;k >= 0 && randomArray[k] > v; k = k - 1 {
 			randomArray[k+1] = randomArray[k]
 		}
 		randomArray[k+1] = v
