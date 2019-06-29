@@ -27,21 +27,25 @@ func main() {
 	for i := 0; i < int(math.Pow(10, 9)); i++ {
 		input := nextInt()
 		if i == 0 {
-			min = input
-		}
-		if max < input {
+			min, max = input, input
+		} else if max < input {
 			max = input
 		} else if input == -1 {
-			if difference < max-min {
+			if difference < max-min && difference > 0 {
 				difference = max - min
 			}
 			break
 		} else if min > input {
 			if difference < max-min {
 				difference = max - min
+			} else if difference < 0 && difference < input - max {
+				difference = input - max
 			}
-			min, max = input, 0
+			min, max = input, input
+		} else if difference < 0 &&  difference < input - max {
+			difference = input - max
 		}
+		fmt.Println("now difference is %s", difference)
 	}
 	fmt.Println(difference)
 }
