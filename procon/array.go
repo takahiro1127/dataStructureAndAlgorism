@@ -2,24 +2,10 @@ package procon
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 	"strconv"
 	"strings"
 )
-
-func insertionSort(randomArray []int, n int) []int {
-	for i, j := 1, 0; i < n; i, j  = i + 1, j + 1{
-		v := randomArray[i]
-		k := j
-		for ;k >= 0 && randomArray[k] > v; k = k - 1 {
-			randomArray[k+1] = randomArray[k]
-		}
-		randomArray[k+1] = v
-		fmt.Println(randomArray)
-	}
-	return randomArray
-}
 
 func SplitIntStdin(delim string) (intSlices []int, err error) {
     // 文字列スライスを取得
