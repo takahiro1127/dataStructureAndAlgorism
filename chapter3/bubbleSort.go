@@ -26,7 +26,7 @@ func main() {
 func bubbleSort(randomArray []int, n int) []int {
 	flag := true
 	v := 1
-	for ; flag; v++ {
+	for ; flag || v == n; v++ {
 		flag = false
 		for j := n - 1; j >= 1; j = j - 1{
 			if randomArray[j] < randomArray[j - 1] {
