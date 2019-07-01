@@ -41,16 +41,16 @@ func main() {
 		}
 		que.processes = append(que.processes, process)
 	}
-	pp.Print(que)
-	fmt.Println(que.excute())
+	que.excute()
 }
 
 func (que Que)excute() int {
 	var excutingTime int
 	var resultBoard map[string]int
 	que.remainingProcessCount = que.processCount
-	for que.remainingProcessCount == 0 {
+	for que.remainingProcessCount > 0 {
 		for i := 0; i < len(que.processes); i++ {
+			if que.processes[i].time == 0 { continue }
 			remainingTime := que.processes[i].time - que.quantum
 			if remainingTime > 0 {
 				que.processes[i].time = remainingTime
@@ -58,13 +58,16 @@ func (que Que)excute() int {
 			} else if remainingTime <= 0 {
 				que.processes[i].time = 0
 				excutingTime += (-1 * remainingTime)
+				pp.Print(que.processes[i].name)
+				pp.Print(excutingTime)
 				resultBoard[que.processes[i].name] = excutingTime
+				pp.Print("ここまできてる")
+				pp.Print(resultBoard)
+				resultBoard = map[string]int {}
 				que.remainingProcessCount--
 			}
 			fmt.Println(que.processes[i])
 		}
 	}
-	pp.Print(resultBoard)
-	// pretty.Printf("--- m:\n%# v\n\n", resultBoard)
 	return excutingTime
 }
