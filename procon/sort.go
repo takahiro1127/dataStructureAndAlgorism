@@ -2,18 +2,21 @@ package procon
 
 func isStable(in, out []int) bool {
 	n := len(in)
+	stability := false
 	for i := 0; i < n; i ++ {
 		for j := i + 1; j < n; i++ {
 			for a := 0; a < n; i++ {
 				for b := a + 1; b < n; b++ {
 					if in[i] == in[j] && in[i] == out[b] && in[j] == out[a] {
-						return true
+						stability = true
 					}
 				}
 			}
 		}
 	}
+	return stability
 }
+
 func selectionSort(A []int, length int){
 	for i := 0; i < length; i ++ {
 		minj := i
