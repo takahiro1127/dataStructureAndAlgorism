@@ -7,3 +7,8 @@ func Exponentiate(base, index int) int {
 	}
 	return power
 }
+
+func Min(left, right int) int {
+	if left < right {return left}
+	return right
+}
