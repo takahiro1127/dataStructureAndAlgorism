@@ -34,51 +34,51 @@ func insertionSort(randomArray []int, n int) []int {
 	return randomArray
 }
 
-func SplitIntStdin(delim string) (intSlices []int, err error) {
-    // 文字列スライスを取得
-    stringSplited := SplitStrStdin(" ")
+// func SplitIntStdin(delim string) (intSlices []int, err error) {
+//     // 文字列スライスを取得
+//     stringSplited := SplitStrStdin(" ")
 
-    // 整数スライスに保存
-    for i := range stringSplited {
-        var iparam int
-        iparam, err = strconv.Atoi(stringSplited[i])
-        if err != nil {
-            return
-        }
-        intSlices = append(intSlices, iparam)
-    }
-    return
-}
+//     // 整数スライスに保存
+//     for i := range stringSplited {
+//         var iparam int
+//         iparam, err = strconv.Atoi(stringSplited[i])
+//         if err != nil {
+//             return
+//         }
+//         intSlices = append(intSlices, iparam)
+//     }
+//     return
+// }
 
-func SplitStrStdin(delim string) (stringReturned []string) {
-    // 文字列で1行取得
-    stringInput := StrStdin()
+// func SplitStrStdin(delim string) (stringReturned []string) {
+//     // 文字列で1行取得
+//     stringInput := StrStdin()
 
-    // 空白で分割
-    // stringSplited := strings.Split(stringInput, delim)
-    stringReturned = SplitWithoutEmpty(stringInput, delim)
+//     // 空白で分割
+//     // stringSplited := strings.Split(stringInput, delim)
+//     stringReturned = SplitWithoutEmpty(stringInput, delim)
 
-    return
-}
+//     return
+// }
 
-func SplitWithoutEmpty(stringTargeted string, delim string) (stringReturned []string) {
-    stringSplited := strings.Split(stringTargeted, delim)
+// func SplitWithoutEmpty(stringTargeted string, delim string) (stringReturned []string) {
+//     stringSplited := strings.Split(stringTargeted, delim)
 
-    for _, str := range stringSplited {
-        if str != "" {
-            stringReturned = append(stringReturned, str)
-        }
-    }
+//     for _, str := range stringSplited {
+//         if str != "" {
+//             stringReturned = append(stringReturned, str)
+//         }
+//     }
 
-    return
-}
+//     return
+// }
 
-func StrStdin() (stringInput string) {
-    scanner := bufio.NewScanner(os.Stdin)
+// func StrStdin() (stringInput string) {
+//     scanner := bufio.NewScanner(os.Stdin)
 
-    scanner.Scan()
-    stringInput = scanner.Text()
+//     scanner.Scan()
+//     stringInput = scanner.Text()
 
-    stringInput = strings.TrimSpace(stringInput)
-    return
-}
+//     stringInput = strings.TrimSpace(stringInput)
+//     return
+// }
