@@ -38,7 +38,7 @@ func exhausiveSearch(target int, parts []int) bool {
 	// fmt.Println(target)
 	// fmt.Println(parts)
 	for i := 0; i < len(parts); i++ {
-		if parts[i] == 0 { continue }
+		if parts[i] == 0 { continue } else if parts[i] > target { return false }
 		remaining := target - parts[i]
 		if remaining > 0 {
 			parts[i] = 0
