@@ -1,6 +1,6 @@
 package procon
 
-func isStable(in, out []int) bool {
+func IsStable(in, out []int) bool {
 	n := len(in)
 	stability := false
 	for i := 0; i < n; i ++ {
@@ -17,7 +17,7 @@ func isStable(in, out []int) bool {
 	return stability
 }
 
-func selectionSort(A []int, length int){
+func SelectionSort(A []int, length int){
 	for i := 0; i < length; i ++ {
 		minj := i
 		for j := i; j < length; j++ {
@@ -29,7 +29,7 @@ func selectionSort(A []int, length int){
 	}
 }
 
-func insertionSort(randomArray []int, n int) []int {
+func InsertionSort(randomArray []int, n int) []int {
 	for i, j := 1, 0; i < n; i, j  = i + 1, j + 1{
 		v := randomArray[i]
 		k := j
@@ -41,7 +41,7 @@ func insertionSort(randomArray []int, n int) []int {
 	return randomArray
 }
 
-func bubbleSort(randomArray []int, n int) []int {
+func BubbleSort(randomArray []int, n int) []int {
 	flag := true
 	v := 1
 	for ; flag || v == n; v++ {
