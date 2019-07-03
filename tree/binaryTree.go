@@ -20,6 +20,9 @@ func main() {
 	}
 	binaryTree := make([]Node, n, n)
 	for i := 0; i < n; i++ {
+		binaryTree[i].parent = -1
+	}
+	for i := 0; i < n; i++ {
 		nodeInfo, err := procon.SplitIntStdin(" ")
 		if err != nil {
 			panic(err)
@@ -46,7 +49,7 @@ func height(binaryTree []Node) []int {
 }
 
 func nodeHeight(node Node, binaryTree []Node) int {
-	if node.parent != nil { return 1}
+	if node.parent == -1 { return 1}
 	height := 1 + nodeHeight(binaryTree[node.parent], binaryTree)
 	return height
 }
