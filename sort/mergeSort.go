@@ -13,13 +13,21 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	// mergeSort(randomArray)
-	fmt.Println(divide(randomArray))
-	fmt.Println(conquer(divide(randomArray)))
+	fmt.Println(mergeSort(randomArray))
+	// fmt.Println(divide(randomArray))
+	// fmt.Println(conquer(divide(randomArray)))
 }
 
-// func mergeSort(randomArray []int) []int {
-// }
+func mergeSort(randomArray []int) []int {
+	leftDivided, rightDivided := divide(randomArray)
+	if len(leftDivided) > 1 {
+		leftDivided = mergeSort(leftDivided)
+	}
+	if len(rightDivided) > 1 {
+		rightDivided = mergeSort(rightDivided)
+	}
+	return conquer(leftDivided, rightDivided)
+}
 
 func conquer(leftArray, rightArray []int) []int {
 	var sortedArray []int
