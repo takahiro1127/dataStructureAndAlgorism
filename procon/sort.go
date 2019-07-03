@@ -59,10 +59,10 @@ func BubbleSort(randomArray []int, n int) []int {
 func MergeSort(randomArray []int) []int {
 	leftDivided, rightDivided := divide(randomArray)
 	if len(leftDivided) > 1 {
-		leftDivided = mergeSort(leftDivided)
+		leftDivided = MergeSort(leftDivided)
 	}
 	if len(rightDivided) > 1 {
-		rightDivided = mergeSort(rightDivided)
+		rightDivided = MergeSort(rightDivided)
 	}
 	return conquer(leftDivided, rightDivided)
 }
@@ -70,7 +70,7 @@ func MergeSort(randomArray []int) []int {
 func conquer(leftArray, rightArray []int) []int {
 	var sortedArray []int
 	for i, j := 0, 0; ; {
-		min := procon.Min(leftArray[i], rightArray[j])
+		min := Min(leftArray[i], rightArray[j])
 		left := (min == leftArray[i])
 		if len(leftArray) == i + 1 && left {
 			plusArray := rightArray[i:]
