@@ -22,7 +22,7 @@ func main() {
 }
 
 func buildMaxHeap(A []int) []int{
-	for i := len(A)/2 - 1; i >= 0; i-- {
+	for i := (len(A) - 1)/2 - 1; i >= 0; i-- {
 		A = maxHeapify(A, i)
 	}
 	return A
@@ -33,12 +33,12 @@ func maxHeapify(A []int, i int) []int {
 	r := 2 * i + 1
 
 	var largest int
-	if l <= len(A) && A[l] > A[i] {
+	if l <= len(A) - 1 && A[l] > A[i] {
 		largest = l
 	} else {
 		largest = i
 	}
-	if r <= len(A) && A[r] > A[largest] {
+	if r <= len(A) - 1 && A[r] > A[largest] {
 		largest = r
 	}
 
