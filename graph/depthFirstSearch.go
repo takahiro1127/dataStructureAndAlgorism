@@ -33,6 +33,8 @@ func main() {
 			setVisitedSides[nodeInfo[i] - 1] = 1
 		}
 		node := Node {
+			come: 0,
+			finish: 0,
 			sides: sides,
 			visitedSides : setVisitedSides,
 		}
@@ -41,18 +43,21 @@ func main() {
 	var time int
 	for i := 0; i < len(graph); i++ {
 		time++
-		time = graph[i].depthFirstSearch(graph, time)
+		time = graph[i].depthFirstSearch(&graph, time)
 		fmt.Printf("%d %d %d\n", i, graph[i].come, graph[i].finish)
 	}
 }
 
-func (node *Node)depthFirstSearch( graph []Node, time int) int {
+func (node *Node)depthFirstSearch( graph *[]Node, time int) int {
 	if node.come == 0 {
 		node.come = time
 	}
-	for i := 0; i < len(node.sides) && graph[node.sides[i]].come == 0 &&  node.visitedSides[i] == 1; i++ {
+	fmt.Println(node.visitedSides)
+	fmt.Println(node.come)
+	fmt.Println((*graph)[node.sides[0]].come)
+	for i := 0; i < len(node.sides) && (*graph)[node.sides[i]].come == 0 &&  node.visitedSides[i] == 1; i++ {
 		time++
-		time = graph[node.sides[i]].depthFirstSearch(graph, time)
+		time = (*graph)[node.sides[i]].depthFirstSearch(graph, time)
 		node.visitedSides[i] = 0
 	}
 	node.finish = time
